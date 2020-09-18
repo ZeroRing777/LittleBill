@@ -107,11 +107,13 @@ public class spendPanel extends JPanel{
 	  
 	  private JPanel Center() {
 		  JPanel p=new JPanel();
+		//  bar.setPreferredSize(new Dimension(100,50));
 		  p.setLayout(new BorderLayout());
 		  p.add(bar,BorderLayout.CENTER);
 		 p.add(West(),BorderLayout.WEST);
 		  GUIUtil.showPanel(p,1);
 		  return p;
+		  
 		  
 		  
 	  }
