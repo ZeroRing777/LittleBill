@@ -66,7 +66,7 @@ public class ChartUtil {
         chart.setSampleLabelStyle(Chart.BELOW);
  
         // 样本值的字体
-        chart.setFont("TimesRoman", new Font("Dialog", Font.PLAIN, 12));
+        chart.setFont("宋体", new Font("Dialog", Font.PLAIN, 16));
         // 显示图例说明
         chart.setLegendOn(true);
         // 把图例说明放在左侧
@@ -74,9 +74,9 @@ public class ChartUtil {
         // 图例说明中的文字
         chart.setLegendLabels(new String[] { "月消费报表" });
         // 图例说明的字体
-        chart.setFont("TimesRoman", new Font("Dialog", Font.PLAIN, 16));
+        chart.setFont("宋体", new Font("Dialog", Font.PLAIN, 16));
         // 下方文字的字体
-        chart.setFont("TimesRoman", new Font("Dialog", Font.PLAIN,14));
+        chart.setFont("宋体", new Font("Dialog", Font.PLAIN,16));
         // 图表中间背景颜色
         chart.setChartBackground(Color.white);
         // 图表整体背景颜色
