@@ -40,7 +40,7 @@ public class recordPanel extends JPanel {
 		  GUIUtil.setColor(ColorUtil.blue, lSpend,lCategory,lComment,lDate,bSubmit,bReturn,lTitle);
 		  Font font=new Font("微软雅黑", Font.PLAIN, 20);
 		  lTitle.setFont(font);
-		  this.setLayout(new BorderLayout());
+		  this.setLayout(new BorderLayout(70,70));
 		  this.add(Center(),BorderLayout.CENTER);
 		  this.add(South(),BorderLayout.SOUTH);
 		  this.add(lTitle,BorderLayout.NORTH);
@@ -73,7 +73,7 @@ public class recordPanel extends JPanel {
 		  lDate.setFont(font);
 		  tfSpend.setBounds(10, 10, 10, 10);
 		  JPanel p=new JPanel();
-		  p.setLayout(new GridLayout(5,2,40,100));
+		  p.setLayout(new GridLayout(4,2,40,100));
 		   p.add(lSpend);
 	       p.add(tfSpend);
 	       p.add(lCategory);
