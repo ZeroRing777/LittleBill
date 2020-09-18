@@ -1,6 +1,7 @@
 package gui.panel;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -47,6 +48,20 @@ public class spendPanel extends JPanel{
 
 	}
 	
+	  private JPanel South() {
+		  
+		  JPanel p=new JPanel();
+		  p.setLayout(new GridLayout(2,4));//行数之后可能增加
+		  p.add(lMDayAvgSpend);
+		  p.add(lMonthLeft);
+		  p.add(lMonthLeftDay);
+		  p.add(lDayAvgLeft);
+		  
+	
+		  return p;
+		  
+	  }
+	  
 	  public static void main(String[] args) {
 	         
 	        GUIUtil.showPanel(spendPanel.instance,1);
