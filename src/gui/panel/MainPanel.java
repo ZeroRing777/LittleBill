@@ -62,7 +62,7 @@ public class MainPanel extends JPanel{
 	          GUIUtil.setImageIcon(bBackup, "backup.png", "备份");
 	          GUIUtil.setImageIcon(bRecover, "restore.png", "恢复");
 	   
-	          
+	          JPanel p=new JPanel();
 	          tb.add(bSpend);
 	      
 	          tb.add(bRecord);
@@ -72,6 +72,7 @@ public class MainPanel extends JPanel{
 	          tb.add(bBackup);
 	          tb.add(bRecover);
 	          tb.setFloatable(false);
+	         
 	          ImageIcon ibook=new ImageIcon("/Users/zeroring/ab/book.jpg");
 	          lWelcome.setIcon(ibook);
 	         lWelcome.setBounds(400, 400, 400, 400);
@@ -87,7 +88,7 @@ public class MainPanel extends JPanel{
 	    public static void main(String[] args) {
 	    	
 	        GUIUtil.showPanel(MainPanel.instance, 1);
-	       
+	        
 	    }
 
 }
