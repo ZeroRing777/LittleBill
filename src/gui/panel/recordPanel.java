@@ -40,10 +40,12 @@ public class recordPanel extends JPanel {
 		  GUIUtil.setColor(ColorUtil.blue, lSpend,lCategory,lComment,lDate,bSubmit,bReturn,lTitle);
 		  Font font=new Font("微软雅黑", Font.PLAIN, 20);
 		  lTitle.setFont(font);
+		  JLabel lEast=new JLabel("   ");
 		  this.setLayout(new BorderLayout(70,70));
 		  this.add(Center(),BorderLayout.CENTER);
 		  this.add(South(),BorderLayout.SOUTH);
 		  this.add(lTitle,BorderLayout.NORTH);
+		  this.add(lEast,BorderLayout.EAST);
 	  }
 	  
 	  private JPanel South() {

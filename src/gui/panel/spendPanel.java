@@ -57,7 +57,7 @@ public class spendPanel extends JPanel{
 	  
 	  
 	  private spendPanel() {
-		  this.setLayout(new BorderLayout());
+		  this.setLayout(new BorderLayout(10,10));
 		  bar.setBackgroundColor(ColorUtil.blue);
 		  GUIUtil.showPanel(bar,0.8);
 		  
@@ -70,6 +70,8 @@ public class spendPanel extends JPanel{
 	        bReturn.setPreferredSize(new Dimension(50,50));
 	        bReturn.setFont(new Font("宋体", Font.PLAIN, 23));
 	        this.add(bReturn,BorderLayout.NORTH);
+	        JLabel lEast=new JLabel(" ");
+	        this.add(lEast,BorderLayout.EAST);
 
 	}
 	  
