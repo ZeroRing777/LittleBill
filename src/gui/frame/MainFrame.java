@@ -24,8 +24,8 @@ public class MainFrame extends JFrame{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		instance.setVisible(true);
-		 GUIUtil.showPanel(MainPanel.instance, 1);
+	     instance.setVisible(false);
+		// GUIUtil.showPanel(MainPanel.instance, 1);
 	
 	}
 

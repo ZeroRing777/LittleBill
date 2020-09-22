@@ -28,7 +28,7 @@ public class RecordDAO {
 			ResultSet rs=s.executeQuery(sql);
 			while(rs.next()) {
 				
-				total=rs.getInt(1);
+				total=rs.getInt(1); 
 			}
 			System.out.println("total: "+total);
 			

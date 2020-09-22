@@ -59,7 +59,7 @@ public class configPanel extends JPanel{
 		p.add(lMysql);
 		p.add(tfMysqlPath);
 		p.add(tfMysqlPath);
-		GUIUtil.showPanel(p,1);
+		GUIUtil.showPanel(p,1,true);
 		return p;
 		
 	}
@@ -77,14 +77,14 @@ public class configPanel extends JPanel{
 		bSubmit.setPreferredSize(new Dimension(100,50));
 		p.add(bReturn);
 		p.add(bSubmit);
-		GUIUtil.showPanel(p,1);
+		GUIUtil.showPanel(p,1,true);
 		
 		
 		return p;
 	}
 	
 	   public static void main(String[] args) {
-	        GUIUtil.showPanel(configPanel.instance,1);
+	    //    GUIUtil.showPanel(configPanel.instance,1);
 	    }
 
 }

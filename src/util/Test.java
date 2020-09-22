@@ -34,7 +34,7 @@ public class Test {
 	        p.add(cpb, BorderLayout.CENTER);
 	        p.add(b, BorderLayout.SOUTH);
 	        //显示面板
-	        GUIUtil.showPanel(p,0.85);
+	        GUIUtil.showPanel(p,0.85,true);
 	          
 	        //给按钮加监听
 	        b.addActionListener(new ActionListener() {

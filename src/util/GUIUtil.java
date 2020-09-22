@@ -17,6 +17,8 @@ import javax.swing.UIManager;
 
 public class GUIUtil {
 	
+	public static JFrame f=new JFrame();
+	
 	private static String imageFolder="/Users/zeroring/Desktop/img";
 
 	public static void useLNF(JFrame f) {
@@ -34,21 +36,26 @@ public class GUIUtil {
 	 * @param p
 	 * @param strech 
 	 */
-	public static void showPanel(JPanel p, double strech) {
+	public static JFrame showPanel(JPanel p,double stretch,  boolean visible) {
 	
 		
-		JFrame f=new JFrame();
+		
 		useLNF(f);
 		f.setSize(800,800);
 		f.setLocationRelativeTo(null);
 		//f.setBackground(ColorUtil.backgroundColor);
-		CenterPanel cp=new CenterPanel(strech);
+		CenterPanel cp=new CenterPanel(stretch);
 		f.setContentPane(cp);
 	    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    f.setVisible(true);
+	    f.setVisible(visible);
 	    p.setBackground(ColorUtil.backgroundColor);
 	    cp.show(p);
+	    
+	    return f;
+	    
 	}
+	
+	
 	
 	public static boolean checkEmpty(JTextField tf, String input) {
 		

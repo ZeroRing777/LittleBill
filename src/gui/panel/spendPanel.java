@@ -59,7 +59,7 @@ public class spendPanel extends JPanel{
 	  private spendPanel() {
 		  this.setLayout(new BorderLayout(10,10));
 		  bar.setBackgroundColor(ColorUtil.blue);
-		  GUIUtil.showPanel(bar,0.8);
+		  GUIUtil.showPanel(bar,0.8,true);
 		  
 	        GUIUtil.setColor(ColorUtil.gray, lMonthSpend, lDaySpend,lAllSpend,lMDayAvgSpend,lMonthLeft,lMonthLeftDay,lDayAvgLeft,lMonthAvgSpend);
 	        		
@@ -102,7 +102,7 @@ public class spendPanel extends JPanel{
 	
 		  
 		  p.setPreferredSize(new Dimension(50,100));
-		  GUIUtil.showPanel(p,1);
+		  GUIUtil.showPanel(p,1,true);
 		  return p;
 		  
 	  }
@@ -113,7 +113,7 @@ public class spendPanel extends JPanel{
 		  p.setLayout(new BorderLayout());
 		  p.add(bar,BorderLayout.CENTER);
 		 p.add(West(),BorderLayout.WEST);
-		  GUIUtil.showPanel(p,1);
+		  GUIUtil.showPanel(p,1,true);
 		  return p;
 		  
 		  
@@ -142,7 +142,7 @@ public class spendPanel extends JPanel{
 		  p.add(lMonthAvgSpend);
 		  p.add(vMonthAvgSpend);
 		  p.setPreferredSize(new Dimension(200,200));
-		  GUIUtil.showPanel(p,1);
+		  GUIUtil.showPanel(p,1,true);
 		  return p;
 		  
 	  }
@@ -151,7 +151,7 @@ public class spendPanel extends JPanel{
 	  
 	  public static void main(String[] args) {
 	         
-	        GUIUtil.showPanel(spendPanel.instance,1);
+	      //  GUIUtil.showPanel(spendPanel.instance,1);
 	    }
 
 }

@@ -103,7 +103,7 @@ public class ChartUtil {
         Icon icon = new ImageIcon(img);
         l.setIcon(icon);
         p.add(l);
-        GUIUtil.showPanel(p,1);
+       // GUIUtil.showPanel(p,1,true);
     }
  
 }

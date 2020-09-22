@@ -57,7 +57,7 @@ public class categoryPanel extends JPanel{
 	    	FlowLayout fl=new FlowLayout();
 			  fl.setHgap(100);
 			  p.setLayout(fl);
-	    	 GUIUtil.showPanel(p,1);
+	    	 GUIUtil.showPanel(p,1,true);
 	    	return p;
 	    }
 	    
@@ -68,7 +68,7 @@ public class categoryPanel extends JPanel{
 	    	sp.setAlignmentY(100);
 	    	sp.setBounds(sp.getX(), sp.getY(), sp.getWidth()*2, sp.getHeight()*2);
 	    	 p.add(sp);
-	    	 GUIUtil.showPanel(p,1);
+	    	 GUIUtil.showPanel(p,1,true);
 	    	return p;
 	    }
 	
@@ -78,14 +78,14 @@ public class categoryPanel extends JPanel{
 	    	bReturn.setPreferredSize(new Dimension(200,50));
 	    	bReturn.setFont(font);
 	    	p.add(bReturn);
-	    	GUIUtil.showPanel(p,1);
+	    	GUIUtil.showPanel(p,1,true);
 	    	return p;
 	    	
 	    }
 	    
 	    public static void main(String[] args) {
 	         
-	        GUIUtil.showPanel(categoryPanel.instance,1);
+	      //  GUIUtil.showPanel(categoryPanel.instance,1);
 	    }
 
 

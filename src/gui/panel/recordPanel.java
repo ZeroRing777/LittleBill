@@ -60,7 +60,7 @@ public class recordPanel extends JPanel {
 		  FlowLayout fl=new FlowLayout();
 		  fl.setHgap(100);
 		  p.setLayout(fl);
-		  GUIUtil.showPanel(p,1);
+		  GUIUtil.showPanel(p,1,true);
 		  return p; 
 		  
 	  }
@@ -84,7 +84,7 @@ public class recordPanel extends JPanel {
 	       p.add(tfComment);
 	       p.add(lDate);
 	       p.add(datepick);
-	      GUIUtil.showPanel(p,0.8);
+	      GUIUtil.showPanel(p,0.8,true);
 		  return p;
 		  
 		  
@@ -93,7 +93,7 @@ public class recordPanel extends JPanel {
 	  
 	  public static void main(String[] args) {
 	         
-	        GUIUtil.showPanel(recordPanel.instance,1);
+	     //   GUIUtil.showPanel(recordPanel.instance,1);
 	    }
 
 	  

@@ -10,6 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+
+import gui.listener.ToolBarListener;
+
 import javax.swing.JLabel;
 
 import util.CenterPanel;
@@ -84,11 +87,19 @@ public class MainPanel extends JPanel{
 	          add(lWelcome,BorderLayout.CENTER);
 	          add(lName,BorderLayout.WEST);
 	     //   add(WorkingPanel, BorderLayout.CENTER); 
+	          addListener();
 	    }
 	    public static void main(String[] args) {
 	    	
-	        GUIUtil.showPanel(MainPanel.instance, 1);
+	     //   GUIUtil.showPanel(MainPanel.instance, 1);
 	        
+	    }
+	    
+	    private void addListener() {
+	    	ToolBarListener listener = new ToolBarListener();
+	    	bReport.addActionListener(listener);
+	    	
+	    	
 	    }
 
 }
