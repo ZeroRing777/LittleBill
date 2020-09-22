@@ -12,16 +12,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import gui.listener.ConfigListener;
 import gui.listener.ReturnListener;
+import service.ConfigService;
 import util.ColorUtil;
 import util.GUIUtil;
-
+import entity.Config;
+import dao.ConfigDAO;
 public class configPanel extends JPanel{
 	
+	
+	Config config=new Config();
+	ConfigDAO dao= new ConfigDAO();
 	public static configPanel instance=new configPanel();
 	
 	JLabel lBudget = new JLabel("本月预算(￥)");
-    public JTextField tfBudget = new JTextField("0");
+    public JTextField tfBudget = new JTextField(ConfigService.default_budget);
      
     JLabel lMysql = new JLabel("Mysql安装目录");
     public JTextField tfMysqlPath = new JTextField("");
@@ -43,6 +49,10 @@ public class configPanel extends JPanel{
 			this.add(lWest,BorderLayout.WEST);
 			this.add(lEast,BorderLayout.EAST);
 			addListener();
+			config=dao.getByKey("budget");
+			tfBudget.setText(config.getValue());
+			config=dao.getByKey("mysqlPath");
+			tfMysqlPath.setText(config.getValue());
 		
 		
 	}
@@ -87,7 +97,12 @@ public class configPanel extends JPanel{
 	 private void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	bReturn.addActionListener(listener);
+	        ConfigListener l =new ConfigListener();
+		    bSubmit.addActionListener(l);
+		    
 	   }
+	 
+	
 	
 	   public static void main(String[] args) {
 	    //    GUIUtil.showPanel(configPanel.instance,1);
