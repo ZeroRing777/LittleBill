@@ -98,8 +98,10 @@ public class MainPanel extends JPanel{
 	    private void addListener() {
 	    	ToolBarListener listener = new ToolBarListener();
 	    	bReport.addActionListener(listener);
-	    	
-	    	
+	    	bSpend.addActionListener(listener);
+	    	bCategory.addActionListener(listener);
+	    	bConfig.addActionListener(listener);
+	    	bRecord.addActionListener(listener);
 	    }
 
 }

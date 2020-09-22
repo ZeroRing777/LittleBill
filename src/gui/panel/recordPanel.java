@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import org.jdesktop.swingx.JXDatePicker;
 
+import gui.listener.ReturnListener;
 import gui.model.CategoryComboBoxModel;
 import util.ColorUtil;
 import util.GUIUtil;
@@ -26,8 +27,8 @@ public class recordPanel extends JPanel {
 	  JLabel lCategory = new JLabel("                分类");
 	  JLabel lComment = new JLabel("                备注");
 	  JLabel lDate = new JLabel("                日期");
-	  JButton bReturn=new JButton("返回主页");
-	  JButton bSubmit=new JButton("提交记录");
+	  public JButton bReturn=new JButton("返回");
+	  JButton bSubmit=new JButton("提交");
 	  JLabel lTitle=new JLabel("                ");
 	  
 	  public JTextField tfSpend = new JTextField("0");
@@ -46,6 +47,7 @@ public class recordPanel extends JPanel {
 		  this.add(South(),BorderLayout.SOUTH);
 		  this.add(lTitle,BorderLayout.NORTH);
 		  this.add(lEast,BorderLayout.EAST);
+		  addListener();
 	  }
 	  
 	  private JPanel South() {
@@ -90,6 +92,10 @@ public class recordPanel extends JPanel {
 		  
 	  }
 	  
+	  private void addListener() {
+	    	ReturnListener listener = new ReturnListener();
+	    	bReturn.addActionListener(listener);
+	   }
 	  
 	  public static void main(String[] args) {
 	         

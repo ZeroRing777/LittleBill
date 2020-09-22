@@ -21,7 +21,7 @@ public class BootStrap {
 			    	 
 			        MainFrame.instance.setVisible(false);
 			        GUIUtil.showPanel(MainPanel.instance, 1,true);
-			    }
+			    } 
 			});
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block

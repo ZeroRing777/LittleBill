@@ -18,18 +18,38 @@ import gui.panel.chartPanel;
 
 public class ToolBarListener implements ActionListener {
 
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		   MainPanel p = MainPanel.instance;
-	        JButton b = (JButton) e.getSource();
-	        if (b == p.bReport)   {
-	       GUIUtil.showPanel(p, 1,false);
-	       GUIUtil.showPanel(chartPanel.instance, 1,true);
+		MainPanel mp=MainPanel.instance;
+		chartPanel chp =chartPanel.instance;
+		categoryPanel cap=categoryPanel.instance;
+		configPanel cop=configPanel.instance;
+		spendPanel sp=spendPanel.instance;
+		recordPanel rp=recordPanel.instance;
+	       JButton b = (JButton) e.getSource();
+	       if (b == mp.bReport)   {
+	       GUIUtil.showPanel(mp, 1,false);
+	       GUIUtil.showPanel(chp,1 ,true);
+	             }
+	        if (b == mp.bCategory)   {
+	 	       GUIUtil.showPanel(mp, 1,false);
+	 	       GUIUtil.showPanel(cap,1 ,true);
+	 	         }
+	        if (b == mp.bConfig)   {
+		 	       GUIUtil.showPanel(mp, 1,false);
+		 	       GUIUtil.showPanel(cop,1 ,true);
+		 	     }
+	        if (b == mp.bSpend)   {
+		 	       GUIUtil.showPanel(mp, 1,false);
+		 	       GUIUtil.showPanel(sp,1 ,true);
+		 	     }
 	   
-	       
-	         }
-	     
+	        if (b == mp.bRecord)   {
+		 	       GUIUtil.showPanel(mp, 1,false);
+		 	       GUIUtil.showPanel(rp,1 ,true);
+		 	     }
 		   
 		
 	}

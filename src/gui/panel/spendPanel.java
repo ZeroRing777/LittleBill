@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import gui.listener.ReturnListener;
 import util.CircleProgressBar;
 import util.ColorUtil;
 import util.GUIUtil;
@@ -72,6 +73,7 @@ public class spendPanel extends JPanel{
 	        this.add(bReturn,BorderLayout.NORTH);
 	        JLabel lEast=new JLabel(" ");
 	        this.add(lEast,BorderLayout.EAST);
+	        addListener();
 
 	}
 	  
@@ -147,6 +149,10 @@ public class spendPanel extends JPanel{
 		  
 	  }
 	 
+	  private void addListener() {
+	    	ReturnListener listener = new ReturnListener();
+	    	bReturn.addActionListener(listener);
+	   }
 
 	  
 	  public static void main(String[] args) {

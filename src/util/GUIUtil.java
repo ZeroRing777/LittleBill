@@ -17,7 +17,7 @@ import javax.swing.UIManager;
 
 public class GUIUtil {
 	
-	public static JFrame f=new JFrame();
+	 static JFrame f=new JFrame();
 	
 	private static String imageFolder="/Users/zeroring/Desktop/img";
 

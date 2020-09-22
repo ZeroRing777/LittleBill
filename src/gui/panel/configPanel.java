@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import gui.listener.ReturnListener;
 import util.ColorUtil;
 import util.GUIUtil;
 
@@ -25,9 +26,9 @@ public class configPanel extends JPanel{
     JLabel lMysql = new JLabel("Mysql安装目录");
     public JTextField tfMysqlPath = new JTextField("");
  
-    JButton bSubmit = new JButton("确认更新");
+    JButton bSubmit = new JButton("确认");
     
-    JButton bReturn=new JButton("返回主页");
+    public JButton bReturn=new JButton("返回");
 	
 	private configPanel() {
 		
@@ -41,7 +42,7 @@ public class configPanel extends JPanel{
 			this.add(lNorth,BorderLayout.NORTH);
 			this.add(lWest,BorderLayout.WEST);
 			this.add(lEast,BorderLayout.EAST);
-			
+			addListener();
 		
 		
 	}
@@ -82,6 +83,11 @@ public class configPanel extends JPanel{
 		
 		return p;
 	}
+	
+	 private void addListener() {
+	    	ReturnListener listener = new ReturnListener();
+	    	bReturn.addActionListener(listener);
+	   }
 	
 	   public static void main(String[] args) {
 	    //    GUIUtil.showPanel(configPanel.instance,1);

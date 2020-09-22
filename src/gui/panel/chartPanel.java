@@ -60,9 +60,7 @@ public class chartPanel extends JPanel {
 	   private void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	Breturn.addActionListener(listener);
-	    	
-	    	
-	    }
+	   }
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

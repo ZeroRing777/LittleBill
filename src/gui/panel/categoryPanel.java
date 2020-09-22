@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import gui.listener.ReturnListener;
 import gui.model.CategoryTableModel;
 import util.ColorUtil;
 import util.GUIUtil;
@@ -36,7 +37,7 @@ public class categoryPanel extends JPanel{
            
             this.add(Center(),BorderLayout.CENTER);
             this.add(North(),BorderLayout.NORTH);
-           
+            addListener();
 	    	
 	    }
 	    
@@ -82,6 +83,11 @@ public class categoryPanel extends JPanel{
 	    	return p;
 	    	
 	    }
+	    
+	    private void addListener() {
+	    	ReturnListener listener = new ReturnListener();
+	    	bReturn.addActionListener(listener);
+	   }
 	    
 	    public static void main(String[] args) {
 	         
