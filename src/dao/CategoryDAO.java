@@ -40,7 +40,7 @@ public class CategoryDAO {
 	public void add(Category category) {
 		
 		
-		String sql="insert into config values(null,?)";
+		String sql="insert into category values(null,?)";
 		try(Connection c=DBUtil.getConnection(); PreparedStatement ps=c.prepareStatement(sql)){
 			
 			ps.setString(1, category.getName());
@@ -65,7 +65,7 @@ public class CategoryDAO {
 	
 	public void update(Category category){
 		
-		String sql="update config set name= ? where id= ?";
+		String sql="update category set name= ? where id= ?";
 		try(Connection c=DBUtil.getConnection();PreparedStatement ps=c.prepareStatement(sql)){
 			ps.setString(1, category.getName());
 			ps.setInt(2, category.getId());

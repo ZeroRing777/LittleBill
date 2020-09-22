@@ -11,8 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import entity.Category;
+import gui.listener.CategoryListener;
 import gui.listener.ReturnListener;
 import gui.model.CategoryTableModel;
+import service.CategoryService;
 import util.ColorUtil;
 import util.GUIUtil;
 
@@ -24,8 +27,8 @@ public class categoryPanel extends JPanel{
 	
 	 public JButton bAdd = new JButton("新增");
 	    public JButton bEdit = new JButton("编辑");
-	    public JButton bDelete = new JButton("删除");
-	    public JButton bReturn=new JButton("返回主页");
+	    public  JButton bDelete = new JButton("删除");
+	    public  JButton bReturn=new JButton("返回主页");
 	    String Names[] = new String[]{"分类名称","消费次数"};
 	    public CategoryTableModel ctm = new CategoryTableModel();
 	    public JTable t =new JTable(ctm);
@@ -38,6 +41,7 @@ public class categoryPanel extends JPanel{
             this.add(Center(),BorderLayout.CENTER);
             this.add(North(),BorderLayout.NORTH);
             addListener();
+            updateData();
 	    	
 	    }
 	    
@@ -87,7 +91,40 @@ public class categoryPanel extends JPanel{
 	    private void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	bReturn.addActionListener(listener);
+	    	CategoryListener l=new CategoryListener();
+	    	bAdd.addActionListener(l);
+	    	bEdit.addActionListener(l);
+	    	bDelete.addActionListener(l);
 	   }
+	    
+	    public Category getSelectedItem() {
+	    	int index=t.getSelectedRow();
+	    	Category c=ctm.cs.get(index);
+	    	return c;
+	    	
+	    }
+	    
+	    public void updateData() {
+	    	
+	    	ctm.cs=new CategoryService().list();
+	    	t.updateUI();
+	    	t.getSelectionModel().setSelectionInterval(0, 0);
+	    	
+	    	if(0==ctm.cs.size()) {
+	    		Category c=new Category();
+				c.setName("暂无分类");
+			    ctm.cs.add(c);
+	    		bEdit.setEnabled(false);
+	    		bDelete.setEnabled(false);
+	    		
+	    	}
+	    
+	    	else
+	    	{
+	    		bEdit.setEnabled(true);
+	    		bDelete.setEnabled(true);
+	    	}
+	    }
 	    
 	    public static void main(String[] args) {
 	         

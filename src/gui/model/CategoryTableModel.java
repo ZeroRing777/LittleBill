@@ -6,18 +6,28 @@ import java.util.List;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
+import entity.Category;
+import gui.panel.categoryPanel;
+import service.CategoryService;
+
 public class CategoryTableModel implements TableModel{
 
 	
 	String [] Names=new String[] {"分类名称","消费次数"};
-	List<String> cs=new ArrayList<String>();
+
+	 public List<Category> cs = new CategoryService().list();
 
 	
 	public  CategoryTableModel(){
-		cs.add("餐饮");
-		cs.add("交通");
-		cs.add("住宿");
-		cs.add("娱乐");
+	/*	if(cs.isEmpty()) { 
+
+			Category c=new Category();
+			c.setName("暂无分类");
+		    cs.add(c);
+
+    	
+    		
+		}*/
 		
 	}
 	
@@ -54,10 +64,11 @@ public class CategoryTableModel implements TableModel{
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		// TODO Auto-generated method stub
+		Category c=cs.get(rowIndex);
 		 if(0==columnIndex)
-	            return cs.get(rowIndex);
+	            return c.getName();
 	        if(1==columnIndex)
-	            return 0;
+	            return c.getRecordNumber();
 		return null;
 	}
 
