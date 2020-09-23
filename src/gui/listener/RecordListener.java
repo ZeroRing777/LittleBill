@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import entity.Category;
 import gui.panel.categoryPanel;
 import gui.panel.recordPanel;
+import gui.panel.spendPanel;
 import service.RecordService;
 import util.GUIUtil;
 
@@ -37,7 +38,7 @@ public class RecordListener implements ActionListener{
 	        Date d = p.datepick.getDate();
 	        new RecordService().add(spend, c, comment, d);
 	        JOptionPane.showMessageDialog(p, "添加成功");
-		
+	        spendPanel.instance.updateData();
 	}
 
 }

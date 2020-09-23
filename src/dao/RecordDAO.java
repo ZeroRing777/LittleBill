@@ -274,7 +274,7 @@ public class RecordDAO {
         try (Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);) {
 			 
 			 ps.setDate(1, DateUtil.util2sql(start));
-			 ps.setDate(2, DateUtil.util2sql(start));
+			 ps.setDate(2, DateUtil.util2sql(end));
 			 
 			 ResultSet rs = ps.executeQuery();
 		    	while(rs.next()) {
@@ -306,6 +306,8 @@ public class RecordDAO {
 	}
 	
 	   public List<Record> listThisMonth(){
+		  // System.out.println("本月开始时间是"+DateUtil.monthBegin());
+		 //  System.out.println("本月结束时间是"+DateUtil.monthEnd());
 	        return list(DateUtil.monthBegin(),DateUtil.monthEnd());
 	    }
 	

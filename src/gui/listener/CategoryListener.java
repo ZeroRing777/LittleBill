@@ -73,7 +73,7 @@ public class CategoryListener implements ActionListener {
           	 }
            }
            new CategoryService().update(id, name);
-           p.updateData();
+           p.updateData(); 
     	   
        }
         

@@ -12,31 +12,32 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import gui.listener.ReturnListener;
+import service.SpendService;
 import util.CircleProgressBar;
 import util.ColorUtil;
 import util.GUIUtil;
 
-public class spendPanel extends JPanel{
+public class spendPanel extends WorkingPanel{
 	
 	public static spendPanel instance=new spendPanel();
 	
-	public JLabel lMonthSpend=new JLabel("        本月消费");
-	public JLabel lDaySpend=new JLabel("        当日消费");
-	public JLabel lAllSpend=new JLabel("        累计消费");
-	public JLabel lMonthAvgSpend=new JLabel("        月均消费");
+	public JLabel lMonthSpend=new JLabel("本月消费");
+	public JLabel lDaySpend=new JLabel("当日消费");
+	public JLabel lAllSpend=new JLabel("累计消费");
+	public JLabel lMonthAvgSpend=new JLabel(" 月均消费");
 	//public JLabel lDayAvgSpend=new JLabel("日均消费");
-	public JLabel lMDayAvgSpend=new JLabel("    本月日均消费");
+	public JLabel lMDayAvgSpend=new JLabel("  本月日均消费");
 	public JLabel lMonthLeft=new JLabel("本月剩余");
 	//public JLabel lAllLeft=new JLabel("总共剩余");
 	public JLabel lMonthLeftDay=new JLabel("距离月末天数");
 	public  JLabel lDayAvgLeft=new JLabel("本月日均可用");
 	
-	public JLabel vMonthSpend=new JLabel("        ￥2500\n");
-	public JLabel vDaySpend=new JLabel("        ￥25\n");
-	public JLabel vAllSpend=new JLabel("        ￥25000\n");
-	public JLabel vMonthAvgSpend=new JLabel("        ￥2500");
+	public JLabel vMonthSpend=new JLabel(" ￥2500\n");
+	public JLabel vDaySpend=new JLabel("￥25\n");
+	public JLabel vAllSpend=new JLabel("￥25000\n");
+	public JLabel vMonthAvgSpend=new JLabel("￥2500");
 	//public JLabel vDayAvgSpend=new JLabel("￥75");
-	public JLabel vMDayAvgSpend=new JLabel("    ￥105\n");
+	public JLabel vMDayAvgSpend=new JLabel("￥105\n");
 	public JLabel vMonthLeft=new JLabel("￥3000\n");
 	//public JLabel vAllLeft=new JLabel("￥10000");
 	public JLabel vMonthLeftDay=new JLabel("30天\n");
@@ -71,9 +72,12 @@ public class spendPanel extends JPanel{
 	        bReturn.setPreferredSize(new Dimension(50,50));
 	        bReturn.setFont(new Font("宋体", Font.PLAIN, 23));
 	        this.add(bReturn,BorderLayout.NORTH);
-	        JLabel lEast=new JLabel(" ");
+	        JLabel lEast=new JLabel("     ");
 	        this.add(lEast,BorderLayout.EAST);
+	        JLabel lWest=new JLabel("     ");
+	        this.add(lWest,BorderLayout.WEST);
 	        addListener();
+	        updateData();
 
 	}
 	  
@@ -149,15 +153,30 @@ public class spendPanel extends JPanel{
 		  
 	  }
 	 
-	  private void addListener() {
+	  public void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	bReturn.addActionListener(listener);
 	   }
 
+	@Override
+	public void updateData() {
+		// TODO Auto-generated method stub
+		SpendPage sp=new SpendService().getSpendPage();
+		vMonthSpend.setText(sp.MonthSpend);
+		vDaySpend.setText(sp.TodaySpend);
+		vAllSpend.setText(sp.AllSpend);
+		vMonthAvgSpend.setText(sp.MonthAvgSpend);
+		vMDayAvgSpend.setText(sp.MDayAvgSpend);
+		vMonthLeft.setText(sp.MonthLeft);
+		vMonthLeftDay.setText(sp.MonthLeftDay);
+		vDayAvgLeft.setText(sp.DayAvgLeft);
+		
+	}
+
 	  
-	  public static void main(String[] args) {
+	 /* public static void main(String[] args) {
 	         
 	      //  GUIUtil.showPanel(spendPanel.instance,1);
-	    }
+	    }*/
 
 }

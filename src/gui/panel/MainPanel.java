@@ -89,11 +89,11 @@ public class MainPanel extends JPanel{
 	     //   add(WorkingPanel, BorderLayout.CENTER); 
 	          addListener();
 	    }
-	    public static void main(String[] args) {
+	  /*  public static void main(String[] args) {
 	    	
 	     //   GUIUtil.showPanel(MainPanel.instance, 1);
 	        
-	    }
+	    }*/
 	    
 	    public void addListener() {
 	    	ToolBarListener listener = new ToolBarListener();

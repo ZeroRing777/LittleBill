@@ -111,6 +111,7 @@ public class recordPanel extends WorkingPanel {
         cb.updateUI();
         resetInput();
         tfSpend.grabFocus();
+        spendPanel.instance.updateData();
 	}
 
 	private void resetInput() {
