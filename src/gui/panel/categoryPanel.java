@@ -19,7 +19,7 @@ import service.CategoryService;
 import util.ColorUtil;
 import util.GUIUtil;
 
-public class categoryPanel extends JPanel{
+public class categoryPanel extends WorkingPanel {
 	
 	
 	
@@ -88,7 +88,7 @@ public class categoryPanel extends JPanel{
 	    	
 	    }
 	    
-	    private void addListener() {
+	    public void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	bReturn.addActionListener(listener);
 	    	CategoryListener l=new CategoryListener();
@@ -124,6 +124,7 @@ public class categoryPanel extends JPanel{
 	    		bEdit.setEnabled(true);
 	    		bDelete.setEnabled(true);
 	    	}
+	    	recordPanel.instance.updateData();
 	    }
 	    
 	    public static void main(String[] args) {

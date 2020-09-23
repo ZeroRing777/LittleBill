@@ -19,7 +19,7 @@ import util.ColorUtil;
 import util.GUIUtil;
 import entity.Config;
 import dao.ConfigDAO;
-public class configPanel extends JPanel{
+public class configPanel extends WorkingPanel{
 	
 	
 	Config config=new Config();
@@ -49,10 +49,11 @@ public class configPanel extends JPanel{
 			this.add(lWest,BorderLayout.WEST);
 			this.add(lEast,BorderLayout.EAST);
 			addListener();
-			config=dao.getByKey("budget");
+			updateData();
+			/*config=dao.getByKey("budget");
 			tfBudget.setText(config.getValue());
 			config=dao.getByKey("mysqlPath");
-			tfMysqlPath.setText(config.getValue());
+			tfMysqlPath.setText(config.getValue());*/
 		
 		
 	}
@@ -94,7 +95,7 @@ public class configPanel extends JPanel{
 		return p;
 	}
 	
-	 private void addListener() {
+	 public void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	bReturn.addActionListener(listener);
 	        ConfigListener l =new ConfigListener();
@@ -104,8 +105,22 @@ public class configPanel extends JPanel{
 	 
 	
 	
-	   public static void main(String[] args) {
+	/*   public static void main(String[] args) {
 	    //    GUIUtil.showPanel(configPanel.instance,1);
-	    }
+	    }*/
 
+
+	@Override
+	public void updateData() {
+		// TODO Auto-generated method stub
+		   String budget = new ConfigService().get(ConfigService.budget);
+	        String mysqlPath = new ConfigService().get(ConfigService.mysqlPath);
+	        tfBudget.setText(budget);
+	        tfMysqlPath.setText(mysqlPath);
+	        tfBudget.grabFocus();
+		
+	}
+
+
+	
 }

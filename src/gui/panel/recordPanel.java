@@ -15,12 +15,15 @@ import javax.swing.JTextField;
 
 import org.jdesktop.swingx.JXDatePicker;
 
+import entity.Category;
+import gui.listener.RecordListener;
 import gui.listener.ReturnListener;
 import gui.model.CategoryComboBoxModel;
+import service.CategoryService;
 import util.ColorUtil;
 import util.GUIUtil;
 
-public class recordPanel extends JPanel {
+public class recordPanel extends WorkingPanel {
 	
 	public static recordPanel instance=new recordPanel();
 	  JLabel lSpend=new JLabel("                花费(￥)");
@@ -33,12 +36,13 @@ public class recordPanel extends JPanel {
 	  
 	  public JTextField tfSpend = new JTextField("0");
 	  public CategoryComboBoxModel cbModel = new CategoryComboBoxModel();
-	  public JComboBox<String> cb=new JComboBox<>(cbModel);
+	  public JComboBox<Category> cb=new JComboBox<>(cbModel);
 	  public JTextField tfComment = new JTextField();
 	  public JXDatePicker datepick = new JXDatePicker(new Date());
 	  
 	  private recordPanel() {
 		  GUIUtil.setColor(ColorUtil.blue, lSpend,lCategory,lComment,lDate,bSubmit,bReturn,lTitle);
+		  
 		  Font font=new Font("微软雅黑", Font.PLAIN, 20);
 		  lTitle.setFont(font);
 		  JLabel lEast=new JLabel("   ");
@@ -48,6 +52,7 @@ public class recordPanel extends JPanel {
 		  this.add(lTitle,BorderLayout.NORTH);
 		  this.add(lEast,BorderLayout.EAST);
 		  addListener();
+		  updateData();
 	  }
 	  
 	  private JPanel South() {
@@ -92,15 +97,40 @@ public class recordPanel extends JPanel {
 		  
 	  }
 	  
-	  private void addListener() {
+	  public void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	bReturn.addActionListener(listener);
+	    	RecordListener l=new RecordListener();
+	    	bSubmit.addActionListener(l);
 	   }
+
+	@Override
+	public void updateData() {
+		// TODO Auto-generated method stub
+		cbModel.cs = new CategoryService().list();
+        cb.updateUI();
+        resetInput();
+        tfSpend.grabFocus();
+	}
+
+	private void resetInput() {
+		// TODO Auto-generated method stub
+		 tfSpend.setText("0");
+	        tfComment.setText("");
+	        if(0!=cbModel.cs.size())
+	            cb.setSelectedIndex(0);
+	        datepick.setDate(new Date());
+	}
+	
+	   public Category getSelectedCategory(){
+	        return (Category) cb.getSelectedItem();
+	    }
+	 
 	  
-	  public static void main(String[] args) {
+	/*  public static void main(String[] args) {
 	         
 	     //   GUIUtil.showPanel(recordPanel.instance,1);
-	    }
+	    }*/
 
 	  
 	

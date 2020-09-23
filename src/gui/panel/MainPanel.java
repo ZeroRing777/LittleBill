@@ -95,7 +95,7 @@ public class MainPanel extends JPanel{
 	        
 	    }
 	    
-	    private void addListener() {
+	    public void addListener() {
 	    	ToolBarListener listener = new ToolBarListener();
 	    	bReport.addActionListener(listener);
 	    	bSpend.addActionListener(listener);
