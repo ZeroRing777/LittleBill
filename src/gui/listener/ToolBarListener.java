@@ -31,23 +31,30 @@ public class ToolBarListener implements ActionListener {
 	       JButton b = (JButton) e.getSource();
 	       if (b == mp.bReport)   {
 	       GUIUtil.showPanel(mp, 1,false);
+	       chp.updateData();
 	       GUIUtil.showPanel(chp,1 ,true);
+	      
 	             }
 	        if (b == mp.bCategory)   {
 	 	       GUIUtil.showPanel(mp, 1,false);
+	 	      cap.updateData();
 	 	       GUIUtil.showPanel(cap,1 ,true);
+	 	       
 	 	         }
 	        if (b == mp.bConfig)   {
 		 	       GUIUtil.showPanel(mp, 1,false);
+		 	      cop.updateData();
 		 	       GUIUtil.showPanel(cop,1 ,true);
 		 	     }
 	        if (b == mp.bSpend)   {
 		 	       GUIUtil.showPanel(mp, 1,false);
+		 	       sp.updateData();
 		 	       GUIUtil.showPanel(sp,1 ,true);
 		 	     }
 	   
 	        if (b == mp.bRecord)   {
 		 	       GUIUtil.showPanel(mp, 1,false);
+		 	       rp.updateData();
 		 	       GUIUtil.showPanel(rp,1 ,true);
 		 	     }
 		   

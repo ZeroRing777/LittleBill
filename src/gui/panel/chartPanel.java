@@ -4,19 +4,22 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import entity.Record;
 import gui.listener.ReturnListener;
 import gui.listener.ToolBarListener;
+import service.ChartService;
 import util.ChartUtil;
 import util.ColorUtil;
 import util.GUIUtil;
 
-public class chartPanel extends JPanel {
+public class chartPanel extends WorkingPanel {
 
 	public static chartPanel instance=new chartPanel();
 	
@@ -32,6 +35,7 @@ public class chartPanel extends JPanel {
 		this.add(South(),BorderLayout.SOUTH);
 		this.add(lEmpty,BorderLayout.NORTH);
 		addListener();
+		updateData();
 	}
 	
 	private JPanel South() {
@@ -48,7 +52,8 @@ public class chartPanel extends JPanel {
 	private JPanel Center() {
 		
 		JPanel p=new JPanel();
-		Image i=ChartUtil.getImage(650,650);
+        List<Record> rs = new ChartService().MonthRecords();
+		Image i=ChartUtil.getImage(rs,650,650);
 		  ImageIcon icon= new ImageIcon(i);
 	        l.setIcon(icon);
 	        p.add(l);
@@ -57,15 +62,24 @@ public class chartPanel extends JPanel {
 		
 	}
 	
-	   private void addListener() {
+	   public void addListener() {
 	    	ReturnListener listener = new ReturnListener();
 	    	Breturn.addActionListener(listener);
 	   }
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		// GUIUtil.showPanel(chartPanel.instance,1);
+	}*/
+
+	@Override
+	public void updateData() {
+		// TODO Auto-generated method stub
+		   List<Record> rs = new ChartService().MonthRecords();
+			Image i=ChartUtil.getImage(rs,650,650);
+			  ImageIcon icon= new ImageIcon(i);
+		       l.setIcon(icon);
 	}
 
 }
