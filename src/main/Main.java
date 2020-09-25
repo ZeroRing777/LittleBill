@@ -1,4 +1,4 @@
-package startup;
+package main;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -8,8 +8,7 @@ import gui.frame.MainFrame;
 import gui.panel.MainPanel;
 import util.GUIUtil;
 
-public class BootStrap {
-
+public class Main{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
