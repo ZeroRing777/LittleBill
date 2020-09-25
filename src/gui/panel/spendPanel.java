@@ -171,6 +171,16 @@ public class spendPanel extends WorkingPanel{
 		vMonthLeftDay.setText(sp.MonthLeftDay);
 		vDayAvgLeft.setText(sp.DayAvgLeft);
 		
+        bar.setProgress(sp.Percentage);
+        if (sp.IsOverSpend) {
+            vMonthLeft.setForeground(ColorUtil.warningColor);
+           
+        } else {
+            vMonthLeft.setForeground(ColorUtil.blue);
+           
+        }
+        bar.setForegroundColor(ColorUtil.getByPercentage(sp.Percentage));
+		
 	}
 
 	  

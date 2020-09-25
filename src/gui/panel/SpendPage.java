@@ -32,7 +32,7 @@ public class SpendPage {
         this.AllSpend="￥" + AllSpend;
         this.MonthAvgSpend="￥" + MonthAvgSpend;
         this.MDayAvgSpend="￥" + MDayAvgSpend;
-        if(MonthLeft<0) {
+        if(MonthLeft<0) { 
         	
         	IsOverSpend=true;
         }

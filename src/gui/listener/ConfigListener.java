@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.JOptionPane;
 
 import gui.panel.configPanel;
+import gui.panel.spendPanel;
 import service.ConfigService;
 import util.GUIUtil;
 
@@ -35,7 +36,7 @@ public class ConfigListener implements ActionListener {
         ConfigService cs= new ConfigService();
         cs.update(ConfigService.budget,p.tfBudget.getText());
         cs.update(ConfigService.mysqlPath,mysqlPath);
-         
+        spendPanel.instance.updateData();
         JOptionPane.showMessageDialog(p, "设置修改成功");
 		
 		
