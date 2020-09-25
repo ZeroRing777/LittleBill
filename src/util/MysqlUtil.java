@@ -23,16 +23,21 @@ public class MysqlUtil {
       String command = String.format
     		  (commandFormat, mysqlPath,DBUtil.loginName,DBUtil.password,DBUtil.port,DBUtil.database,backupfile);
 
-       System.out.println(command);
+       //System.out.println(command);
         Runtime.getRuntime().exec(command);
     }
  
     public static void recover(String mysqlPath, String recoverfile) {
         try {
-            String commandFormat = "%s/bin/mysql -u%s -p%s  %s";
+        	String commandFormat;
+
+        	if(System.getProperty("os.name").contains("Mac")) {
+            commandFormat = "%s/bin/mysql -u%s -p%s  %s";
+        	}
+        	else  commandFormat="\"%s/bin/mysql.exe\" -u%s -p%s   %s ";
             String command = String.format(commandFormat, mysqlPath, DBUtil.loginName, DBUtil.password,
                     DBUtil.database);
-       //   System.out.println(command);
+            //System.out.println(command);
             Process p = Runtime.getRuntime().exec(command);
             OutputStream out = p.getOutputStream();
             String inStr;
@@ -58,7 +63,7 @@ public class MysqlUtil {
  
     public static void main(String[] args) throws IOException {
       
-    	System.out.println(System.getProperty("os.name").contains("Mac"));
+    	//System.out.println(System.getProperty("os.name").contains("Mac"));
         // backup(mysqlPath, file);
         // restore();
         // recover(mysqlPath, file);

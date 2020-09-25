@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 import gui.listener.BackUpListener;
+import gui.listener.RecoverListener;
 import gui.listener.ToolBarListener;
 
 import javax.swing.JLabel;
@@ -105,6 +106,8 @@ public class MainPanel extends JPanel{
 	    	bRecord.addActionListener(listener);
 	    	BackUpListener b=new BackUpListener();
 	    	bBackup.addActionListener(b);
+	    	RecoverListener r=new RecoverListener();
+	    	bRecover.addActionListener(r);
 	    }
 
 }

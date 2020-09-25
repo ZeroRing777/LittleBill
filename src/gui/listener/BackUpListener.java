@@ -43,13 +43,13 @@ public class BackUpListener implements ActionListener{
         });*/
         int returnVal =  fc.showSaveDialog(MainPanel.instance);
         File file = fc.getSelectedFile();
-        System.out.println(file);
+       // System.out.println(file);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             
-            System.out.println(file);
+          //  System.out.println(file);
             if(!file.getName().toLowerCase().endsWith(".sql"))
                 file = new File(file.getParent(),file.getName()+".sql");
-            System.out.println(file);
+          //  System.out.println(file);
              
            try {
                MysqlUtil.backup(mysqlPath, file.getAbsolutePath());
